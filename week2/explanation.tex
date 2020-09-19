@@ -23,7 +23,7 @@
         \[ \Pr(n) = p(1-p){}^{n-1} \]
     \item Tổng của $N$ xác suất đầu tiên là:
         \begin{align*}
-            \sum^{N}_{n=1}p(1-p){}^{n-1} &= p\sum^{N}(1-p){}^{n-1} \\
+            \sum^{N}_{n=1}p(1-p){}^{n-1} &= p\sum^{N}_{n=1}(1-p){}^{n-1} \\
                                        &= p\cdot\frac{1 - (1 - p){}^{N}}{1 - (1-p)} \\
                                        &= 1 - (1 - p){}^{N}
         \end{align*}
@@ -75,7 +75,6 @@
         \end{align*}
         \par Quay trở lại với hàm \texttt{sumProb(N, p, r)}.
         \par Ta xét dãy $a_{N} = \text{\texttt{sumProb(N, p, r)}}$. Đây là một dãy dương, tăng và có giới hạn bằng $1$ (theo chứng minh trên). Do đó khi $N\to{+\infty}$ thì $a_{N}\to 1$. Vì vậy hàm \texttt{sumProb(N, p, r)} có thể được sử dụng để kiểm tra tổng xác suất của phân bố nhị thức âm bằng $1$.
-    \item $ $
 \end{itemize}
 
 \end{document}
