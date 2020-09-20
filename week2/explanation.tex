@@ -41,6 +41,7 @@
         \par Dãy $H(N)$ là dãy tăng, có giới hạn như trên, do đó $H(N)$ có thể xấp xỉ entropy của nguồn tin geometric, tức là hàm \texttt{approxEntropy (N, p)} xấp xỉ entropy.
 \end{itemize}
 
+\newpage
 
 \par\textbf{Bài tập 1b.}
 
@@ -55,10 +56,15 @@
     \item Khác với phân bố geometric, phân bố nhị thức chỉ mang lại hữu hạn symbol, do đó hàm \texttt{approxEntropy (N, p)} xấp xỉ entropy.
 \end{itemize}
 
+\newpage
+
 \par\textbf{Bài tập 1c.}
 
 \begin{itemize}
-    \item Xác suất để sau $n$ lần thực hiện phép thử Bernoulli mới có được $r$ lần thành công là:
+    \item Để có được $r$ lần thử thành công, ta cần thực hiện $n$ lần, trong đó:
+        \[ n\in\{ r, r + 1, r + 2, \ldots \} \]
+        \par Nhưng trong $n$ lần thử, lần cuối cùng là lần thành công, nên số cách chọn ra những lần thành công trong $n - 1$ lần thử trước đó là $\dbinom{n - 1}{r - 1}$.
+        \par Do đó, xác suất để sau $n$ lần thực hiện phép thử Bernoulli mới có được $r$ lần thành công là:
         \[ \Pr(n) = \binom{n - 1}{r - 1}p^{r}(1 - p){}^{n - r} = \binom{n - 1}{n - r}p^{r}(1 - p){}^{n - r} \]
     \item Sử dụng khai triển Taylor
         \[ (1 + x){}^{\alpha} = \sum^{\infty}_{n=0}\binom{\alpha}{n}x^{n}  \]
