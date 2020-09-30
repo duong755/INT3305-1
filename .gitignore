@@ -293,3 +293,4 @@ TSWLatexianTemp*
 *.bak[0-9]*
 !.latexmkrc
 !latexmkrc
+__pycache__
