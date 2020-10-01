@@ -28,19 +28,27 @@ class PrefixCodeTree:
         binary_string = bin(decimal)[2:]
         return binary_string
 
-    def decode(self, encodedData: bytes, datalen: int) -> List[str]:
+    def decode(self, encodedData: bytes, datalen: int) -> List[List[str]]:
         binary_string = PrefixCodeTree._hex_to_binary(encodedData)
         tree = self.json()
         current_node = tree
 
         symbols: List[str] = []
+        codeword: str = ""
+        codewords: List[str] = []
         loop_len = min(datalen, binary_string.__len__())
 
         for i in range(loop_len):
             bit: str = binary_string[i]
+            codeword += bit
             current_node = current_node.get(bit)
             if "leaf" in current_node:
                 symbols.append(current_node.get("leaf"))
+                codewords.append(codeword)
+                codeword = ""
                 current_node = tree
 
-        return symbols
+        unused_bits = binary_string[loop_len:]
+        codewords.append(unused_bits)
+
+        return [codewords, symbols]
