@@ -51,10 +51,10 @@ class PrefixCodeTree:
 
         res = ""
         for word in codewords:
-            res += str(word).ljust(4)
+            res += str(word).ljust(8)
         res += "\n"
         for symbol in symbols:
-            res += str(symbol).ljust(4)
+            res += str(symbol).ljust(8)
 
         return res
 
