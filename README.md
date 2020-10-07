@@ -2,5 +2,3 @@
 
 Ngô Quang Dương/17020191
 
-- [Bài tập tuần 2](./week2)
-- [Bài tập tuần 3](./week3)
