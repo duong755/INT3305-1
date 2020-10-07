@@ -1,4 +1,5 @@
 from typing import List
+import json
 
 
 class PrefixCodeTree:
@@ -25,7 +26,7 @@ class PrefixCodeTree:
         binary_string = bin(decimal)[2:]
         return binary_string
 
-    def decode(self, encodedData: bytes, datalen: int) -> List[List[str]]:
+    def decode(self, encodedData: bytes, datalen: int) -> str:
         binary_string = PrefixCodeTree._hex_to_binary(encodedData)
         tree = self.root
         current_node = tree
@@ -48,4 +49,35 @@ class PrefixCodeTree:
         unused_bits = binary_string[loop_len:]
         codewords.append(unused_bits)
 
-        return [codewords, symbols]
+        res = ""
+        for word in codewords:
+            res += str(word).ljust(4)
+        res += "\n"
+        for symbol in symbols:
+            res += str(symbol).ljust(4)
+
+        return res
+
+
+# ===============================================
+
+codebook: dict = {
+    "x1": [0],
+    "x2": [1, 0, 0],
+    "x3": [1, 0, 1],
+    "x4": [1, 1]
+}
+
+codeTree = PrefixCodeTree()
+
+for symbol in codebook:
+    codeTree.insert(codebook[symbol], symbol)
+
+try:
+    json_string = json.dumps(codeTree.root, indent=2, sort_keys=True)
+    print(json_string)
+
+    print(codeTree.decode(b"\xd2\x9f\x20", 21))
+
+except TypeError:
+    print("String is not decodable")
