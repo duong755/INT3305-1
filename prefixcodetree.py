@@ -3,13 +3,10 @@ from typing import List
 
 class PrefixCodeTree:
     def __init__(self):
-        self.data: dict = {} # sử dụng dictionary để có cấu trúc cây
-
-    def json(self):
-        return self.data
+        self.root: dict = {} # sử dụng dictionary để có cấu trúc cây
 
     def insert(self, codeword: List[int], symbol: str) -> None:
-        current_node: dict = self.data
+        current_node: dict = self.root
         for bit in codeword:
             if bit == 0:
                 if current_node.get("0") is None:
@@ -30,7 +27,7 @@ class PrefixCodeTree:
 
     def decode(self, encodedData: bytes, datalen: int) -> List[List[str]]:
         binary_string = PrefixCodeTree._hex_to_binary(encodedData)
-        tree = self.json()
+        tree = self.root
         current_node = tree
 
         symbols: List[str] = []

@@ -83,4 +83,4 @@ def approxEntropy(N: int, p: float) -> float:
         entropy += prob(i, p, N) * infoMeasure(i, p, N)
     return entropy
 
-print(approxEntropy(100, 0.5))
+print("approxEntropy(100, 0.5) =", approxEntropy(100, 0.5))

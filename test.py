@@ -14,7 +14,7 @@ for symbol in codebook:
     codeTree.insert(codebook[symbol], symbol)
 
 try:
-    json_string = json.dumps(codeTree.json(), indent=2, sort_keys=True)
+    json_string = json.dumps(codeTree.root, indent=2, sort_keys=True)
     print(json_string)
 
     bits, symbols = codeTree.decode(b"\xd2\x9f\x20", 21)
