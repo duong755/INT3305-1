@@ -3,7 +3,7 @@ from typing import List
 
 class PrefixCodeTree:
     def __init__(self):
-        self.data: dict = {}
+        self.data: dict = {} # sử dụng dictionary để có cấu trúc cây
 
     def json(self):
         return self.data

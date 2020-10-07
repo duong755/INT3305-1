@@ -1,5 +1,5 @@
 import json
-from week3.prefixcodetree import PrefixCodeTree
+from prefixcodetree import PrefixCodeTree
 
 codebook: dict = {
     "x1": [0],
@@ -24,5 +24,7 @@ try:
     print()
     for symbol in symbols:
         print(symbol.ljust(4, ' '), end="")
+
+    print()
 except TypeError:
     print("String is not decodable")
